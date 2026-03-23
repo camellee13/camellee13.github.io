@@ -16,31 +16,38 @@ $('.navbar-brand, .top-scroll a').click(function() {
   }
 });
 var navbarHeight = $('.main-nav').height();
-$('a.btnAbout, a.hire').click(function() {
+$('a.btnAbout, a.hire, .navbar-nav a').click(function() {
   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-	|| location.hostname == this.hostname) {
+    || location.hostname == this.hostname) {
 
-	var target = $(this.hash);
-	target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	if (target.length) {
-	  $('html,body').animate({
-		scrollTop: target.offset().top - navbarHeight
-	  }, 2000);
-	  return false;
-	}
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top - navbarHeight
+      }, 1500); 
+		
+      if ($('.navbar-collapse').hasClass('in')) {
+          $('.navbar-collapse').removeClass('in');
+      }
+
+      return false;
+    }
   }
-});    
+});
 //=======================flexslider==============================================
 
 //=====================================================================
        
 
 //=================================menu scroll==========================================
+/*
 $('.navbar-nav').onePageNav({
        scrollOffset: navbarHeight,
-	   scrollSpeed:1000,
+       scrollSpeed:1000,
         scrollThreshold: 0.25
-	});
+    });
+*/
 //========================================= portfolio filter =========================================	
 	
 
@@ -50,12 +57,14 @@ imgHover();
 lightboxPhoto(); 
 winHeight();
 barScroll();
-  //============================ nav container sticky =========================================
+//============================ nav container sticky =========================================
 
-  $(".navbar").sticky({ topSpacing: 0 });
+$(".navbar").sticky({ topSpacing: 0 });
+/*
 $('ul.nav li a').click(function(){
 $('.navbar-inverse .navbar-collapse').removeClass('in')
 });
+*/
 //================= show content ==============================================================
    
 })();
