@@ -325,6 +325,10 @@ a.navbar-brand {
     margin: 0;
 }
 
+.about-content .job-desc {
+    font-size: 12px;
+}
+
 .avatar {
     max-width: 120px;
 }
